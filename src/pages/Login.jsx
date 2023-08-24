@@ -1,7 +1,7 @@
-import { userAuth } from "../context/AuthContext";
+import { UserAuth } from "../context/AuthContext";
 
 const Login = () => {
-  const currentUser = userAuth();
+  const {currentUser} = UserAuth();
   console.log(currentUser);
   return (
     <div className="hero min-h-screen bg-base-200">

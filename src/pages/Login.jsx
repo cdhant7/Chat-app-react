@@ -1,7 +1,11 @@
+import { useEffect } from "react";
 import { UserAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate=useNavigate();
   const {currentUser , signinWithGoogle} = UserAuth();
+  
 
   const handleLogin= async() =>{
     try {
@@ -10,6 +14,12 @@ const Login = () => {
       console.log(error)
     }
   }
+
+  useEffect(() =>{
+    if(currentUser) {
+      navigate("/chat")
+    }
+  },[currentUser])
 
   return (
     <div className="hero min-h-screen bg-base-200">
